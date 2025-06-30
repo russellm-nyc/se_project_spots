@@ -11,3 +11,10 @@
   font-weight: bold;
   src: url("./fonts/Poppins-Medium.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "DMMono";
+  font-style: medium;
+  font-weight: 500;
+  src: url("./fonts/DMMono-Medium.ttf") format("truetype");
+}
