@@ -13,14 +13,32 @@
   <body>
     <div class="page">
       <header class="header">
-        <div class="header__content">
-          <img src="./images/Logo.svg" alt="Logo" class="header__logo" />
-        </div>
+        <img src="./images/logo.svg" alt="Spot Logo" class="header__logo" />
       </header>
 
       <main class="content">
         <section class="profile">
-          <div class="profile__content">
+          <img
+            src="./images/avatar.jpg"
+            alt="Bessie Coleman"
+            class="profile__image"
+          />
+          <div class="profile__column">
+            <h1 class="profile__title">Bessie Coleman</h1>
+            <p class="profile__subtitle">Civil Aviator</p>
+            <button class="profile__edit-btn" type="button">
+              <img src="./images/edit-icon.svg" alt="pencil icon" />Edit Profile
+            </button>
+          </div>
+          <button class="profile__plus-btn" type="button">
+            <img
+              src="./images/plus-icon.svg"
+              alt="plus icon"
+              class="profile__plus_icon"
+            />New Post
+          </button>
+
+          <!-- <div class="profile__content">
             <div class="profile__info">
               <img
                 src="./images/avatar.jpg"
@@ -32,21 +50,105 @@
                   <h1 class="profile__title">Bessie Coleman</h1>
                   <p class="profile__subtitle">Civil Aviator</p>
                 </div>
-                <div><img src="./images/Edit Icon.png" /> Profile</div>
+                <div><img src="./images/Edit Icon.svg" /> Profile</div>
               </div>
             </div>
-            <button class="profile__post">
+            <button class="button">
               <img
                 src="./images/Plus icon.png"
                 alt="plus icon"
                 class="profile__post-image"
               />
-              <div class="profile__post-text">New Post</div>
+              New Post
             </button>
-          </div>
+          </div> -->
         </section>
 
-        <section class="cards"></section>
+        <section class="cards">
+          <div>
+            <img
+              class="card__image"
+              src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
+              alt="Photo by Moritz Feldmann"
+            />
+            <p class="card__description">
+              Val Thorens
+              <button class="card__like-btn" type="button">
+                <img src="./images/heart-icon.svg" alt="heart" />
+              </button>
+            </p>
+          </div>
+
+          <div>
+            <img
+              class="card__image"
+              src="./images/2-photo-by-ceiline-from-pexels.jpg"
+              alt="Photo by Ceiline"
+            />
+            <p class="card__description">
+              Restaurant
+              <button class="card__like-btn" type="button">
+                <img src="./images/heart-icon.svg" alt="heart" />
+              </button>
+            </p>
+          </div>
+
+          <div>
+            <img
+              class="card__image"
+              src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
+              alt="Photo by Tubanur Dogan"
+            />
+            <p class="card__description">
+              An outdoor cafe
+              <button class="card__like-btn" type="button">
+                <img src="./images/heart-icon.svg" alt="heart" />
+              </button>
+            </p>
+          </div>
+
+          <div>
+            <img
+              class="card__image"
+              src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
+              alt="Photo by Maurice Laschet"
+            />
+            <p class="card__description">
+              A very long bridge, over the forest...
+              <button class="card__like-btn" type="button">
+                <img src="./images/heart-icon.svg" alt="heart" />
+              </button>
+            </p>
+          </div>
+
+          <div>
+            <img
+              class="card__image"
+              src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+              alt="Photo by Van Anh Nguyen"
+            />
+            <p class="card__description">
+              Tunnel with morning light
+              <button class="card__like-btn" type="button">
+                <img src="./images/heart-icon.svg" alt="heart" />
+              </button>
+            </p>
+          </div>
+
+          <div>
+            <img
+              class="card__image"
+              src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
+              alt="Photo by Moritz Feldman"
+            />
+            <p class="card__description">
+              Mountain house
+              <button class="card__like-btn" type="button">
+                <img src="./images/heart-icon.svg" alt="heart" />
+              </button>
+            </p>
+          </div>
+        </section>
       </main>
 
       <footer class="footer"></footer>

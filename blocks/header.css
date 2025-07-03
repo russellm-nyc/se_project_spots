@@ -1,19 +1,12 @@
 .header {
   background-color: #ffff;
   opacity: 0.8;
-  width: 100%;
-}
-
-.header__content {
-  max-width: 1440px;
-  max-height: 46px;
+  padding: 10px 0;
   display: flex;
-  margin: auto;
+  justify-content: center;
 }
 
 .header__logo {
   height: 26px;
-  width: 94;
-  /* border: 15px solid green; */
-  margin: auto;
+  width: 94px;
 }
