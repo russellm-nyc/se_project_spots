@@ -70,83 +70,37 @@
   height: 12px;
 }
 
-/* .profile {
-  margin-left: 20px;
-  margin-right: 20px;
-} */
+/* screen size changes */
+@media screen and (max-width: 550px) and (min-width: 320px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+    height: 274px;
+    padding-bottom: 10px;
+  }
 
-/* this is my old code */
-/* .profile__content {
-  box-sizing: border-box;
-  border-bottom: 1px solid rgba(33, 33, 33, 0.4);
-  padding: 20px 0;
-  display: flex;
-  margin: auto;
-  margin-bottom: 20px;
-  justify-content: space-between;
-  align-items: flex-end;
+  .profile__image {
+    margin: 0 auto 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__title {
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 6px;
+  }
+
+  .profile__subtitle {
+    margin: auto;
+  }
+
+  .profile__edit-btn {
+    margin: 32px auto 20px;
+  }
+
+  .profile__plus-btn {
+    width: 288px;
+    margin: 0 auto;
+  }
 }
-
-.profile__image {
-  border-radius: 8px;
-  margin-right: 20px;
-}
-
-.profile__info {
-  display: flex;
-}
-
-.profile__title {
-  font-size: 32px;
-  font-weight: 500;
-  margin: 0 0 12px 0;
-}
-
-.profile__subtitle {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.profile__description {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.profile__edit {
-  align-items: flex-end;
-}
-
-.profile__post {
-  display: flex;
-  background-color: #212121;
-  height: 52px;
-  width: 149px;
-  border-radius: 8px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.profile__post-text {
-  color: #fcf5e5;
-}
-
-.profile__post-image {
-  width: 12px;
-  height: 12px;
-  margin-right: 10px;
-}
-
-.button {
-  background-color: #212121;
-  border: none;
-  color: #fcf5e5;
-  height: 52px;
-  width: 149px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-} */
