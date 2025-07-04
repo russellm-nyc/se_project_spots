@@ -98,7 +98,6 @@
   .profile {
     display: flex;
     flex-direction: column;
-    min-height: 274px;
     padding-bottom: 20px;
   }
 
@@ -109,6 +108,7 @@
   }
 
   .profile__title {
+    letter-spacing: normal;
     font-size: 20px;
     margin: auto;
     margin-bottom: 6px;
