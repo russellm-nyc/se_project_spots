@@ -137,6 +137,83 @@
           <p class="footer__text">2023 &#169; Spots</p>
         </div>
       </footer>
+
+      <!-- MODAL START -->
+      <div class="modal">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">Edit Profile</h2>
+            <button class="modal__close-btn" type="button">
+              <img
+                src="./images/close-icon.svg"
+                alt="close icon"
+                class="modal__close-img"
+              />
+            </button>
+          </div>
+
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label">Name</label>
+            <input
+              id="profile-name-input"
+              type="text"
+              class="modal__input"
+              placeholder="Type your name"
+            />
+
+            <label for="profile-description-input" class="modal__label"
+              >Description</label
+            >
+            <input
+              id="profile-description-input"
+              type="text"
+              class="modal__input"
+              placeholder="Describe yourself"
+            />
+
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <div class="modal__row">
+            <h2 class="modal__title">New Post</h2>
+            <button class="modal__close-btn" type="button">
+              <img
+                src="./images/close-icon.svg"
+                alt="close icon"
+                class="modal__close-img"
+              />
+            </button>
+          </div>
+
+          <form class="modal__form">
+            <label for="profile-link-input" class="modal__label"
+              >Image link</label
+            >
+            <input
+              id="profile-link-input"
+              type="url"
+              class="modal__input"
+              placeholder="Paste a link to the picture"
+            />
+
+            <label for="profile-caption-input" class="modal__label"
+              >Caption</label
+            >
+            <input
+              id="profile-caption-input"
+              type="text"
+              class="modal__input"
+              placeholder="Type your caption"
+            />
+
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
