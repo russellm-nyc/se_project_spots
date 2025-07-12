@@ -1,4 +1,4 @@
-# Project 3: Spots
+# Project 3: Spots (Stage 4)
 
 ### Overview
 
@@ -6,6 +6,7 @@
 - Figma
 - Images
 - Project Link
+- JavaScript
 
 **Intro**
 
