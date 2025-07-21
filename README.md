@@ -1,16 +1,13 @@
-# Project 3: Spots (Stage 4)
+# Project 3: Spots (Stage 5)
 
 ### Overview
 
-- Intro
-- Figma
-- Images
-- Project Link
-- JavaScript
+- Add array of images
+- Add for each loop
 
 **Intro**
 
-This is the 3rd TripleTen project called SPOTS. It focuses on creating a responsive website based on a Figma design. I used @media queries, flexboxes and grids to create and adaptive design.
+This is the 3rd TripleTen project called SPOTS. This part focuses on adding the code for the cards and the loop.
 
 **Figma**
 
