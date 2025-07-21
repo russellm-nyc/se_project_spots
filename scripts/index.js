@@ -49,5 +49,5 @@ postCloseBtn.addEventListener("click", function () {
 });
 
 initialCards.forEach(function (card) {
-  console.log(card);
+  console.log(card.name);
 });
