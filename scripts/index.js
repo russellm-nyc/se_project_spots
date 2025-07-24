@@ -55,8 +55,6 @@ const postCaptionInput = postModal.querySelector("#post-caption-input");
 
 postOpenBtn.addEventListener("click", function () {
   postModal.classList.add("modal_is-opened");
-  postLinkInput.value = "";
-  postCaptionInput.value = "";
 });
 
 postCloseBtn.addEventListener("click", function () {
@@ -87,4 +85,5 @@ function handleAddCardSubmit(evt) {
   console.log(postCaptionInput.value);
   // Close the modal.
   postModal.classList.remove("modal_is-opened");
+  postFormEl.reset();
 }
