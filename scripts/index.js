@@ -35,14 +35,20 @@ const profileNameInput = profileModal.querySelector("#profile-name-input");
 const profileDescriptionInput = profileModal.querySelector(
   "#profile-description-input"
 );
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
 
 profileOpenBtn.addEventListener("click", function () {
-  profileModal.classList.add("modal_is-opened");
+  openModal(profileModal);
   profileNameInput.value = profileTitleEl.textContent;
   profileDescriptionInput.value = profileSubtitleEl.textContent;
 });
 profileCloseBtn.addEventListener("click", function () {
-  profileModal.classList.remove("modal_is-opened");
+  closeModal(profileModal);
 });
 
 const postOpenBtn = document.querySelector(".profile__plus-btn");
@@ -54,11 +60,11 @@ const postLinkInput = postModal.querySelector("#post-link-input");
 const postCaptionInput = postModal.querySelector("#post-caption-input");
 
 postOpenBtn.addEventListener("click", function () {
-  postModal.classList.add("modal_is-opened");
+  openModal(postModal);
 });
 
 postCloseBtn.addEventListener("click", function () {
-  postModal.classList.remove("modal_is-opened");
+  closeModal(postModal);
 });
 
 initialCards.forEach(function (card) {
