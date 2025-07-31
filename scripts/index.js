@@ -1,3 +1,10 @@
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -30,7 +37,7 @@ const initialCards = [
 ];
 const profileOpenBtn = document.querySelector(".profile__edit-btn");
 const profileModal = document.querySelector("#edit-profile-modal");
-const profileCloseBtn = profileModal.querySelector(".modal__close-btn");
+const profileCloseBtn = profileModal.querySelector(".modal__close");
 const profileFormEl = profileModal.querySelector(".modal__form");
 
 const profileTitleEl = document.querySelector(".profile__title");
@@ -59,6 +66,13 @@ function getCardElement(data) {
     cardLikeBtnEl.classList.toggle("card__like-btn_active");
   });
 
+  cardImgEL.addEventListener("click", () => {
+    previewImageEl.src = data.link;
+    previewImageEl.alt = data.name;
+    previewCaptionEl.textContent = data.name;
+    openModal(previewModal);
+  });
+
   const cardTrashBtnEl = cardElement.querySelector(".card__trash-btn");
   cardTrashBtnEl.addEventListener("click", () => {
     cardElement.remove();
@@ -69,12 +83,12 @@ function getCardElement(data) {
 }
 
 //
-function openModal(modal) {
-  modal.classList.add("modal_is-opened");
-}
-function closeModal(modal) {
-  modal.classList.remove("modal_is-opened");
-}
+// function openModal(modal) {
+//   modal.classList.add("modal_is-opened");
+// }
+// function closeModal(modal) {
+//   modal.classList.remove("modal_is-opened");
+// }
 
 profileOpenBtn.addEventListener("click", function () {
   openModal(profileModal);
@@ -85,9 +99,20 @@ profileCloseBtn.addEventListener("click", function () {
   closeModal(profileModal);
 });
 
+const previewModal = document.querySelector("#preview-modal");
+const previewClose = previewModal.querySelector(
+  ".modal__close, .modal__close_type_preview"
+);
+const previewImageEl = previewModal.querySelector(".modal__image");
+const previewCaptionEl = previewModal.querySelector(".modal__caption");
+
+previewClose.addEventListener("click", function () {
+  closeModal(previewModal);
+});
+
 const postOpenBtn = document.querySelector(".profile__plus-btn");
 const postModal = document.querySelector("#new-post-modal");
-const postCloseBtn = postModal.querySelector(".modal__close-btn");
+const postCloseBtn = postModal.querySelector(".modal__close");
 const postFormEl = postModal.querySelector(".modal__form");
 
 const postLinkInput = postModal.querySelector("#post-link-input");
