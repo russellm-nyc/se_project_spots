@@ -43,92 +43,19 @@
           </button>
         </section>
 
-        <section class="card">
-          <div>
-            <img
-              class="card__image"
-              src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="Photo by Moritz Feldmann"
-            />
-            <p class="card__description">
-              <span class="card__description-text">Val Thorens</span>
-              <button class="card__like-btn" type="button">
-                <img src="./images/heart-icon.svg" alt="heart" />
-              </button>
-            </p>
-          </div>
-
-          <div>
-            <img
-              class="card__image"
-              src="./images/2-photo-by-ceiline-from-pexels.jpg"
-              alt="Photo by Ceiline"
-            />
-            <p class="card__description">
-              Restaurant
-              <button class="card__like-btn" type="button">
-                <img src="./images/heart-icon.svg" alt="heart" />
-              </button>
-            </p>
-          </div>
-
-          <div>
-            <img
-              class="card__image"
-              src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-              alt="Photo by Tubanur Dogan"
-            />
-            <p class="card__description">
-              An outdoor cafe
-              <button class="card__like-btn" type="button">
-                <img src="./images/heart-icon.svg" alt="heart" />
-              </button>
-            </p>
-          </div>
-
-          <div>
-            <img
-              class="card__image"
-              src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-              alt="Photo by Maurice Laschet"
-            />
-            <p class="card__description">
-              <span class="card__description-text">
-                A very long bridge, over the forest
-              </span>
-              <button class="card__like-btn" type="button">
-                <img src="./images/heart-icon.svg" alt="heart" />
-              </button>
-            </p>
-          </div>
-
-          <div>
-            <img
-              class="card__image"
-              src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-              alt="Photo by Van Anh Nguyen"
-            />
-            <p class="card__description">
-              Tunnel with morning light
-              <button class="card__like-btn" type="button">
-                <img src="./images/heart-icon.svg" alt="heart" />
-              </button>
-            </p>
-          </div>
-
-          <div>
-            <img
-              class="card__image"
-              src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="Photo by Moritz Feldman"
-            />
-            <p class="card__description">
-              Mountain house
-              <button class="card__like-btn" type="button">
-                <img src="./images/heart-icon.svg" alt="heart" />
-              </button>
-            </p>
-          </div>
+        <section class="cards">
+          <ul class="cards__list">
+            <template id="card-template">
+              <li class="card">
+                <button class="card__trash-btn" type="button"></button>
+                <img src="#" alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <button class="card__like-btn" type="button"></button>
+                </div>
+              </li>
+            </template>
+          </ul>
         </section>
       </main>
 
@@ -209,6 +136,19 @@
 
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
+        </div>
+      </div>
+
+      <!-- MODAL 2 -->
+      <div class="modal" id="preview-modal">
+        <div class="modal__content">
+          <button class="modal__close-btn" type="button"></button>
+          <img
+            src="./images/close-icon.svg"
+            alt="close icon"
+            class="modal__close-img"
+          />
+          <p class="modal_caption">New post</p>
         </div>
       </div>
     </div>

@@ -1,5 +1,9 @@
 const initialCards = [
   {
+    name: "Golden Gate Bridge",
+    link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -35,6 +39,36 @@ const profileNameInput = profileModal.querySelector("#profile-name-input");
 const profileDescriptionInput = profileModal.querySelector(
   "#profile-description-input"
 );
+// Clone Card Template
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImgEL = cardElement.querySelector(".card__image");
+
+  cardTitleEl.textContent = data.name;
+  cardImgEL.src = data.link;
+  cardImgEL.alt = data.name;
+
+  const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
+  cardLikeBtnEl.addEventListener("click", () => {
+    cardLikeBtnEl.classList.toggle("card__like-btn_active");
+  });
+
+  const cardTrashBtnEl = cardElement.querySelector(".card__trash-btn");
+  cardTrashBtnEl.addEventListener("click", () => {
+    cardElement.remove();
+    cardElement = null;
+  });
+
+  return cardElement;
+}
+
+//
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
@@ -67,10 +101,6 @@ postCloseBtn.addEventListener("click", function () {
   closeModal(postModal);
 });
 
-initialCards.forEach(function (card) {
-  console.log(card.name);
-});
-
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
@@ -78,6 +108,7 @@ function handleProfileFormSubmit(evt) {
   profileSubtitleEl.textContent = profileDescriptionInput.value;
   // Close the modal.
   profileModal.classList.remove("modal_is-opened");
+  profileFormEl.reset();
 }
 
 // Set the submit listener.
@@ -87,9 +118,19 @@ postFormEl.addEventListener("submit", handleAddCardSubmit);
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
 
-  console.log(postLinkInput.value);
-  console.log(postCaptionInput.value);
-  // Close the modal.
+  const inputValues = {
+    link: postLinkInput.value,
+    name: postCaptionInput.value,
+  };
+
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
+
   postModal.classList.remove("modal_is-opened");
   postFormEl.reset();
 }
+
+initialCards.forEach(function (card) {
+  const cardElement = getCardElement(card);
+  cardsList.append(cardElement);
+});
