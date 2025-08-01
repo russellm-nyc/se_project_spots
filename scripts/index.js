@@ -1,10 +1,3 @@
-function openModal(modal) {
-  modal.classList.add("modal_is-opened");
-}
-function closeModal(modal) {
-  modal.classList.remove("modal_is-opened");
-}
-
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -83,12 +76,12 @@ function getCardElement(data) {
 }
 
 //
-// function openModal(modal) {
-//   modal.classList.add("modal_is-opened");
-// }
-// function closeModal(modal) {
-//   modal.classList.remove("modal_is-opened");
-// }
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
 
 profileOpenBtn.addEventListener("click", function () {
   openModal(profileModal);
@@ -132,11 +125,15 @@ function handleProfileFormSubmit(evt) {
   profileTitleEl.textContent = profileNameInput.value;
   profileSubtitleEl.textContent = profileDescriptionInput.value;
   // Close the modal.
-  profileModal.classList.remove("modal_is-opened");
+  closeModal(profileModal);
   profileFormEl.reset();
 }
+// This is the New Function I created
+function renderCard(data) {
+  const cardElement = getCardElement(data);
+  cardsList.prepend(cardElement);
+}
 
-// Set the submit listener.
 profileFormEl.addEventListener("submit", handleProfileFormSubmit);
 postFormEl.addEventListener("submit", handleAddCardSubmit);
 
@@ -148,14 +145,12 @@ function handleAddCardSubmit(evt) {
     name: postCaptionInput.value,
   };
 
-  const cardElement = getCardElement(inputValues);
-  cardsList.prepend(cardElement);
+  renderCard(inputValues);
 
-  postModal.classList.remove("modal_is-opened");
+  closeModal(postModal);
   postFormEl.reset();
 }
 
 initialCards.forEach(function (card) {
-  const cardElement = getCardElement(card);
-  cardsList.append(cardElement);
+  renderCard(card);
 });
