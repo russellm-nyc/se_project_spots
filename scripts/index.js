@@ -1,7 +1,7 @@
 const initialCards = [
   {
     name: "Golden Gate Bridge",
-    link: " https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
   {
     name: "Val Thorens",
@@ -57,7 +57,7 @@ const previewClose = previewModal.querySelector(".modal__close_type_preview");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
-// Clone Card Template
+// CLONE Card Template
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -93,15 +93,18 @@ function getCardElement(data) {
   return cardElement;
 }
 
-//
+// MODAL OPEN Function
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeClose);
 }
+// MODAL CLOSE Function
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeClose);
 }
 
-// Open MODAL 1 Profile
+// Open PROFILE Modal - 1
 profileOpenBtn.addEventListener("click", function () {
   openModal(profileModal);
   resetValidation(
@@ -112,15 +115,8 @@ profileOpenBtn.addEventListener("click", function () {
   profileNameInput.value = profileTitleEl.textContent;
   profileDescriptInput.value = profileSubtitleEl.textContent;
 });
-profileCloseBtn.addEventListener("click", function () {
-  closeModal(profileModal);
-});
 
-previewClose.addEventListener("click", function () {
-  closeModal(previewModal);
-});
-
-// Open MODAL 2 Post
+// Open POST Modal - 2
 postOpenBtn.addEventListener("click", function () {
   openModal(postModal);
   resetValidation(postFormEl, [postLinkInput, postCaptionInput], settings);
@@ -130,9 +126,18 @@ postOpenBtn.addEventListener("click", function () {
   postSubmitBtn.disabled = true;
   postSubmitBtn.classList.add("modal__button_inactive");
 });
-// Close MODAL 2 Post
+
+// Close PROFILE Modal - 1
+profileCloseBtn.addEventListener("click", function () {
+  closeModal(profileModal);
+});
+// Close POST Modal - 2
 postCloseBtn.addEventListener("click", function () {
   closeModal(postModal);
+});
+// Close PREVIEW Modal - 3
+previewClose.addEventListener("click", function () {
+  closeModal(previewModal);
 });
 
 function handleProfileFormSubmit(evt) {
@@ -155,13 +160,21 @@ document.querySelectorAll(".modal").forEach((modal) => {
 });
 
 // Close ALL modals on ESC click
+/*
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     document.querySelectorAll(".modal.modal_is-opened").forEach((modal) => {
       closeModal(modal);
     });
   }
-});
+});*/
+function handleEscapeClose(event) {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal.modal_is-opened").forEach((modal) => {
+      closeModal(modal);
+    });
+  }
+}
 
 // This is the New Function I created
 function renderCard(data) {
