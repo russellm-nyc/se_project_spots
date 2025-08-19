@@ -1,3 +1,6 @@
+import "./index.css";
+import { enableValidation, settings } from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Golden Gate Bridge",
@@ -160,19 +163,10 @@ document.querySelectorAll(".modal").forEach((modal) => {
 });
 
 // Close ALL modals on ESC click
-/*
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    document.querySelectorAll(".modal.modal_is-opened").forEach((modal) => {
-      closeModal(modal);
-    });
-  }
-});*/
 function handleEscapeClose(event) {
   if (event.key === "Escape") {
-    document.querySelectorAll(".modal.modal_is-opened").forEach((modal) => {
-      closeModal(modal);
-    });
+    const openedModal = document.querySelector(".modal_is-opened");
+    closeModal(openedModal);
   }
 }
 
@@ -201,3 +195,5 @@ initialCards.forEach(function (card) {
   const cardElement = getCardElement(card);
   cardsList.append(cardElement);
 });
+
+enableValidation(settings);

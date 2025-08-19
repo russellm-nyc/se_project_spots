@@ -6,20 +6,23 @@
     <meta name="author" content="Russell Murray" />
     <meta name="keywords" content="HTML, CSS, JavaScript" />
     <link rel="stylesheet" href="./vendor/normalize.css" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Spots Project</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Spot Logo" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="Spot Logo"
+          class="header__logo"
+        />
       </header>
 
       <main class="content">
         <section class="profile">
           <img
-            src="./images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="Bessie Coleman"
             class="profile__image"
           />
@@ -28,7 +31,7 @@
             <p class="profile__subtitle">Civil Aviator</p>
             <button class="profile__edit-btn profile__edit-img" type="button">
               <img
-                src="./images/edit-icon.svg"
+                src="<%=require('./images/edit-icon.svg')%>"
                 alt="pencil icon"
                 class="profile__edit-img"
               />Edit Profile
@@ -36,7 +39,7 @@
           </div>
           <button class="profile__plus-btn" type="button">
             <img
-              src="./images/plus-icon.svg"
+              src="<%=require('./images/plus-icon.svg')%>"
               alt="plus icon"
               class="profile__plus-icon"
             />New Post
@@ -155,7 +158,5 @@
 
       <!-- end -->
     </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validation.js"></script>
   </body>
 </html>
