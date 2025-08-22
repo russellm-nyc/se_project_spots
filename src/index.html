@@ -21,11 +21,20 @@
 
       <main class="content">
         <section class="profile">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="Bessie Coleman"
-            class="profile__image"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img
+                src="<%=require('./images/pencil-light.svg')%>"
+                alt="Spot Logo"
+                class="profile__pencil-icon"
+              />
+            </button>
+            <img
+              src="<%=require('./images/avatar.jpg')%>"
+              alt="Pencil icon"
+              class="profile__image"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__title">Bessie Coleman</h1>
             <p class="profile__subtitle">Civil Aviator</p>
