@@ -63,6 +63,13 @@ const avatarCloseBtn = avatarModal.querySelector(".modal__close");
 const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarLinkInput = avatarModal.querySelector("#profile-avatar-input");
 
+//DELETE elements
+const deleteModal = document.querySelector("#delete-modal");
+const deleteCloseBtn = deleteModal.querySelector(".modal__close_type_preview");
+const deleteCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
+const deleteBtn = deleteModal.querySelector(".modal__delete-btn");
+const deleteForm = deleteModal.querySelector(".modal__form");
+
 let selectedCard;
 let selectedCardId;
 
@@ -96,24 +103,31 @@ function getCardElement(data) {
 
   const cardTrashBtnEl = cardElement.querySelector(".card__trash-btn");
   cardTrashBtnEl.addEventListener("click", () => {
-    handleDeleteCard(cardElement, data);
+    selectedCard = cardElement;
+    selectedCardId = data._id;
+    openModal(deleteModal);
   });
 
   return cardElement;
 }
 
-// deleteCard Subit Handler
-function handleDeleteCard(cardElement, data) {
-  selectedCard = cardElement;
-  selectedCardId = data._id; // or data.id, depending on your API response
+// deleteCard Submit Handler
+deleteForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  if (!selectedCard || !selectedCardId) return;
 
   api
     .deleteCard(selectedCardId)
     .then(() => {
       selectedCard.remove();
+      closeModal(deleteModal);
+      selectedCard = null;
+      selectedCardId = null;
     })
-    .catch(console.error);
-}
+    .catch((err) => {
+      console.error("Failed to delete card:", err);
+    });
+});
 
 // MODAL OPEN Function
 function openModal(modal) {
@@ -175,9 +189,16 @@ postCloseBtn.addEventListener("click", function () {
 previewClose.addEventListener("click", function () {
   closeModal(previewModal);
 });
-// Close AVATAR Modal - 3
+// Close AVATAR Modal - 4
 avatarCloseBtn.addEventListener("click", function () {
   closeModal(avatarModal);
+});
+// Close DELETE Modal - 5
+deleteCloseBtn.addEventListener("click", function () {
+  closeModal(deleteModal);
+});
+deleteCancelBtn.addEventListener("click", function () {
+  closeModal(deleteModal);
 });
 
 // editUserInfo Submit Handler
