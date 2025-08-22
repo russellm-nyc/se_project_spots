@@ -39,8 +39,7 @@ const profileNameInput = profileModal.querySelector("#profile-name-input");
 const profileDescriptInput = profileModal.querySelector(
   "#profile-description-input"
 );
-let selectedCard;
-let selectedCardId;
+
 //POST elements
 const postOpenBtn = document.querySelector(".profile__plus-btn");
 const postModal = document.querySelector("#new-post-modal");
@@ -55,6 +54,17 @@ const previewModal = document.querySelector("#preview-modal");
 const previewClose = previewModal.querySelector(".modal__close_type_preview");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
+
+//AVATAR elements
+const avatarModal = document.querySelector("#avatar-modal");
+const avatarOpenBtn = document.querySelector(".profile__avatar-btn");
+const avatarFormEl = avatarModal.querySelector(".modal__form");
+const avatarCloseBtn = avatarModal.querySelector(".modal__close");
+const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
+const avatarLinkInput = avatarModal.querySelector("#profile-avatar-input");
+
+let selectedCard;
+let selectedCardId;
 
 // CLONE Card Template
 const cardTemplate = document
@@ -139,6 +149,20 @@ postOpenBtn.addEventListener("click", function () {
   postSubmitBtn.classList.add("modal__button_inactive");
 });
 
+// Open AVATAR Modal - 4
+avatarOpenBtn.addEventListener("click", function () {
+  openModal(avatarModal);
+  const avatarInputs = Array.from(
+    avatarFormEl.querySelectorAll(settings.inputSelector)
+  );
+  resetValidation(avatarFormEl, avatarInputs, settings);
+  //Reset form values
+  avatarFormEl.reset();
+  // Force the submit button to be disabled initially
+  avatarSubmitBtn.disabled = true;
+  avatarSubmitBtn.classList.add("modal__button_inactive");
+});
+
 // Close PROFILE Modal - 1
 profileCloseBtn.addEventListener("click", function () {
   closeModal(profileModal);
@@ -150,6 +174,10 @@ postCloseBtn.addEventListener("click", function () {
 // Close PREVIEW Modal - 3
 previewClose.addEventListener("click", function () {
   closeModal(previewModal);
+});
+// Close AVATAR Modal - 3
+avatarCloseBtn.addEventListener("click", function () {
+  closeModal(avatarModal);
 });
 
 // editUserInfo Submit Handler
@@ -168,6 +196,21 @@ function handleProfileFormSubmit(evt) {
     .catch(console.error);
 
   // profileFormEl.reset();
+}
+
+// Update avatar Submit Handler
+function handleUpdateAvatarSubmit(evt) {
+  console.log("Avatar form submitted!");
+  evt.preventDefault();
+  api
+    .updateAvatar({
+      avatar: avatarLinkInput.value,
+    })
+    .then((data) => {
+      document.querySelector(".profile__image").src = data.avatar;
+      closeModal(avatarModal);
+    })
+    .catch(console.error);
 }
 
 // createCard Subit Handler
@@ -212,6 +255,7 @@ function renderCard(data) {
 }
 
 profileFormEl.addEventListener("submit", handleProfileFormSubmit);
+avatarFormEl.addEventListener("submit", handleUpdateAvatarSubmit);
 postFormEl.addEventListener("submit", handleAddCardSubmit);
 
 enableValidation(settings);
