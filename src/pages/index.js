@@ -49,7 +49,7 @@ const avatarLinkInput = avatarModal.querySelector("#profile-avatar-input");
 const deleteModal = document.querySelector("#delete-modal");
 const deleteCloseBtn = deleteModal.querySelector(".modal__close_type_preview");
 const deleteCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
-const deleteBtn = deleteModal.querySelector(".modal__delete-btn");
+const deleteSubmitBtn = deleteModal.querySelector(".modal__delete-btn");
 const deleteForm = deleteModal.querySelector(".modal__form");
 
 let selectedCard;
@@ -250,6 +250,7 @@ function handleProfileFormSubmit(evt) {
 // POST SUBMIT - createCard Handler
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  setButtonText(postSubmitBtn, true);
 
   const inputValues = {
     link: postLinkInput.value,
@@ -263,12 +264,16 @@ function handleAddCardSubmit(evt) {
       closeModal(postModal);
       postFormEl.reset();
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(postSubmitBtn, false);
+    });
 }
 
 // DELETE SUBMIT - deleteCard Handler
-deleteForm.addEventListener("submit", function (evt) {
+function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  setButtonText(deleteSubmitBtn, true, "Deleting...", "Delete");
   if (!selectedCard || !selectedCardId) return;
 
   api
@@ -279,10 +284,11 @@ deleteForm.addEventListener("submit", function (evt) {
       selectedCard = null;
       selectedCardId = null;
     })
-    .catch((err) => {
-      console.error("Failed to delete card:", err);
+    .catch(console.error)
+    .finally(() => {
+      setButtonText(deleteSubmitBtn, false, "Deleting...", "Delete");
     });
-});
+}
 
 // Close ALL modals on overlay click
 document.querySelectorAll(".modal").forEach((modal) => {
@@ -310,5 +316,5 @@ function renderCard(data) {
 profileFormEl.addEventListener("submit", handleProfileFormSubmit);
 avatarFormEl.addEventListener("submit", handleUpdateAvatarSubmit);
 postFormEl.addEventListener("submit", handleAddCardSubmit);
-
+deleteForm.addEventListener("submit", handleDeleteSubmit);
 enableValidation(settings);
