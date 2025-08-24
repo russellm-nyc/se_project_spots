@@ -172,7 +172,7 @@
   color: rgba(33, 33, 33, 0.3);
 }
 
-.modal__error {
+.modal__input-error {
   display: block;
   color: rgba(255, 0, 0, 0.7);
   font-size: 16px;
@@ -188,6 +188,9 @@
 }
 
 .modal__cancel-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 156px;
   padding: 18px 58px;
   border-radius: 8px;
@@ -199,6 +202,9 @@
 }
 
 .modal__delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 156px;
   padding: 18px 58px;
   border-radius: 8px;
@@ -210,6 +216,9 @@
 }
 
 .modal__submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 156px;
   padding: 18px 58px;
   border-radius: 8px;

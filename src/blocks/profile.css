@@ -78,6 +78,10 @@
   max-width: 420px;
 }
 
+.profile__image_hidden {
+  display: none;
+}
+
 .profile__edit-img {
   width: 18.48px;
   opacity: 70%;

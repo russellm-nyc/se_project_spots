@@ -66,14 +66,13 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([cards, userData]) => {
-    console.log("User data:", userData);
-    console.log("Cards:", cards);
     cards.forEach((card) => {
       const cardElement = getCardElement(card);
       cardsList.append(cardElement);
     });
 
     profileAvatar.src = userData.avatar;
+    profileAvatar.classList.remove("profile__image_hidden");
     profileTitleEl.textContent = userData.name;
     profileSubtitleEl.textContent = userData.about;
   })
@@ -129,6 +128,7 @@ function getCardElement(data) {
   cardTrashBtnEl.addEventListener("click", () => {
     selectedCard = cardElement;
     selectedCardId = data._id;
+    deleteSubmitBtn.textContent = "Delete";
     openModal(deleteModal);
   });
 
@@ -171,16 +171,15 @@ postOpenBtn.addEventListener("click", function () {
 
 // Open AVATAR Modal - 4
 avatarOpenBtn.addEventListener("click", function () {
-  openModal(avatarModal);
+  //Reset form values
+  avatarFormEl.reset();
+
   const avatarInputs = Array.from(
     avatarFormEl.querySelectorAll(settings.inputSelector)
   );
   resetValidation(avatarFormEl, avatarInputs, settings);
-  //Reset form values
-  avatarFormEl.reset();
-  // Force the submit button to be disabled initially
-  avatarSubmitBtn.disabled = true;
-  avatarSubmitBtn.classList.add("modal__button_inactive");
+
+  openModal(avatarModal);
 });
 
 // Close PROFILE Modal - 1

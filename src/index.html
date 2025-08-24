@@ -32,7 +32,7 @@
             <img
               src="<%=require('./images/avatar.jpg')%>"
               alt="Pencil icon"
-              class="profile__image"
+              class="profile__image profile__image_hidden"
             />
           </div>
           <div class="profile__column">
@@ -96,7 +96,10 @@
               maxlength="40"
               required
             />
-            <span id="profile-name-input-error" class="modal__error"></span>
+            <span
+              id="profile-name-input-error"
+              class="modal__input-error"
+            ></span>
 
             <label for="profile-description-input" class="modal__label"
               >Description</label
@@ -112,7 +115,7 @@
             />
             <span
               id="profile-description-input-error"
-              class="modal__error"
+              class="modal__input-error"
             ></span>
 
             <button type="submit" class="modal__submit-btn">Save</button>
@@ -137,7 +140,7 @@
               placeholder="Paste a link to the picture"
               required
             />
-            <span id="post-link-input-error" class="modal__error"></span>
+            <span id="post-link-input-error" class="modal__input-error"></span>
 
             <label for="post-caption-input" class="modal__label">Caption</label>
             <input
@@ -149,7 +152,10 @@
               maxlength="30"
               required
             />
-            <span id="post-caption-input-error" class="modal__error"></span>
+            <span
+              id="post-caption-input-error"
+              class="modal__input-error"
+            ></span>
 
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -185,7 +191,10 @@
               name="avatar"
               required
             />
-            <span id="profile-avatar-input-error" class="modal__error"></span>
+            <span
+              id="profile-avatar-input-error"
+              class="modal__input-error"
+            ></span>
 
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
