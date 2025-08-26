@@ -30,9 +30,9 @@
 .modal__container {
   max-width: 730px;
   width: 100%;
+  margin: 0 auto;
   background-color: white;
   border-radius: 8px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   padding: 32px 50px;
@@ -41,7 +41,7 @@
   position: relative;
 }
 
-#delete-modal .modal__container {
+.modal__container--delete {
   max-width: 630px;
 }
 
@@ -260,7 +260,7 @@
     margin: 0;
   }
 
-  #delete-modal .modal__container {
+  .modal__container--delete {
     max-width: 300px;
   }
   .modal__title {
